@@ -1,13 +1,14 @@
 import ReactDOM from "react-dom/client";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { MainLayout } from "./layouts/MainLayout";
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: <MainLayout />,
     children: [
       {
-        path: "team",
+        path: "/",
         element: <div>Home</div>,
       },
     ],
