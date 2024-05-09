@@ -9,11 +9,13 @@
 }
 
 .container{
-    max-width: 1290px;
+    max-width: var(--container-body);
     margin: 0 auto;
 }
 
 .body{
     display: flex;
     flex-direction: column;
+    gap: 60px;
+    margin-bottom: 100px; 
 }
