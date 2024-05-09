@@ -1,0 +1,33 @@
+.header {
+  position: relative;
+  background: var(--light-bg);
+  flex-shrink: 0;
+}
+
+.container {
+  max-width: var(--container-main);
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--content-header);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  svg {
+    color: var(--icon-color);
+  }
+}
+
+.buttons {
+  svg {
+    color: var(--icon-color);
+  }
+}
