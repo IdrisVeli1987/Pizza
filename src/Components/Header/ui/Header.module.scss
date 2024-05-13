@@ -20,14 +20,26 @@
   display: flex;
   align-items: center;
   gap: 10px;
+  font: var(--font-m);
+  font-weight: 700;
+}
+
+.button {
+  min-height: 40px;
+  min-width: 89px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
 
   svg {
-    color: var(--icon-color);
+    color: #fff;
   }
 }
 
 .buttons {
-  svg {
-    color: var(--icon-color);
-  }
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
 }
