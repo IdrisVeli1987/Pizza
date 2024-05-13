@@ -14,7 +14,7 @@ const Button = (props) => {
   console.log(variantClass);
 
   return (
-    <div
+    <button
       className={classNames(`button ${className}`, cls[variantClass], {
         [cls["active"]]: active,
         [cls["border"]]: border,
@@ -22,7 +22,7 @@ const Button = (props) => {
       onClick={onClick}
     >
       {children}
-    </div>
+    </button>
   );
 };
 
