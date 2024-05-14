@@ -2,7 +2,6 @@
   background: var(--primary-color);
   height: 50px;
 
-
   & .active {
     background: var(--icon-color);
     color: #fff;
@@ -11,9 +10,10 @@
 
 .normal {
   background: var(--button-bg-color);
-  transition: all 0.3s ease 0s; 
- 
-  & :hover {
+  border: 2px solid var(--icon-color);
+  transition: all 0.3s ease 0s;
+
+  &:hover {
     background: var(--inverted-button-bg-color);
   }
 }
