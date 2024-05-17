@@ -3,6 +3,7 @@ import cls from "./MainLayout.module.scss";
 import { Header } from "@/Components/Header";
 import { useTheme } from "@/hooks/useTheme";
 import { Footer } from "@/Components/Footer";
+import { Navbar } from "@/Components/Navbar";
 
 const MainLayout = () => {
   const { theme } = useTheme();
@@ -12,7 +13,7 @@ const MainLayout = () => {
       <main className={cls.main}>
         <div className={cls.container}>
           <div className={cls.body}>
-            <p>Navbar</p>
+            <Navbar />
 
             <Outlet />
           </div>
