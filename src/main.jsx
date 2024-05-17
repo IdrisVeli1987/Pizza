@@ -18,6 +18,14 @@ const router = createBrowserRouter([
         path: "/pizzas",
         element: <p>Pizzas</p>,
       },
+      {
+        path: "/rolls",
+        element: <p>Suşilər</p>,
+      },
+      {
+        path: "/others",
+        element: <p>İçkilər</p>,
+      },
     ],
   },
 ]);
