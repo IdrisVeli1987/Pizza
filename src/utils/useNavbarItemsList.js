@@ -1,26 +1,26 @@
-import PizzaProduct from "@/assets/img/PizzaProduct.svg";
-import RollProduct from "@/assets/img/RollsProduct.svg";
-import OtherProduct from "@/assets/img/OtherProduct.svg";
+import PizzaProduct from "@/assets/img/PizzaProduct.svg?react";
+import RollProduct from "@/assets/img/RollsProduct.svg?react";
+import OtherProduct from "@/assets/img/OtherProduct.svg?react";
 
 const useNavbarItemsList = () => {
-  const navbarItesmList = [
+  const navbarItemsList = [
     {
       path: "/pizzas",
-      icon: PizzaProduct,
+      Icon: PizzaProduct,
       text: "Pizzalar",
     },
     {
       path: "/rolls",
-      icon: RollProduct,
+      Icon: RollProduct,
       text: "Suşilər",
     },
     {
       path: "/others",
-      icon: OtherProduct,
+      Icon: OtherProduct,
       text: "İçkilər",
     },
   ];
-  return navbarItesmList;
+  return navbarItemsList;
 };
 
 export { useNavbarItemsList };

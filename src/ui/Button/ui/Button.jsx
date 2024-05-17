@@ -11,7 +11,7 @@ const Button = (props) => {
 
   const variantClass = variantClasses[variant] || variantClasses.normal;
 
-  console.log(variantClass);
+  // console.log(variantClass);
 
   return (
     <button
