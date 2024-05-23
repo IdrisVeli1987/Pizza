@@ -7,10 +7,14 @@ import svgr from "vite-plugin-svgr";
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), svgr({ exportAsDefault: true })],
-  
+
   server: {
     open: true,
     port: 3000,
+  },
+
+  define: {
+    __API__: JSON.stringify("http://localhost:8000"),
   },
 
   resolve: {
