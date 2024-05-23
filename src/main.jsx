@@ -7,6 +7,8 @@ import { MainLayout } from "./layouts/MainLayout";
 import { ThemeProvider } from "./providers/ThemeProvider";
 import { routerNavigations } from "./const/router";
 import { PageLoader } from "./ui/PageLoader";
+import { Provider } from "react-redux";
+import { store } from "./redux/store";
 
 const router = createBrowserRouter([
   {
@@ -20,7 +22,9 @@ const router = createBrowserRouter([
 ]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
-  <ThemeProvider initialTheme={Theme.LIGHT}>
-    <RouterProvider router={router} />
-  </ThemeProvider>
+  <Provider store={store}>
+    <ThemeProvider initialTheme={Theme.LIGHT}>
+      <RouterProvider router={router} />
+    </ThemeProvider>
+  </Provider>
 );
