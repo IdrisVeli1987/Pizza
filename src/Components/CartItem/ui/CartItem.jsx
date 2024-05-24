@@ -4,17 +4,16 @@ import { productsName } from "@/const/const";
 
 const CartItem = (props) => {
   const {
-    id, 
+    // id,
     img = "",
     title = "",
     product = "",
     ingredients = [],
     description = "",
+    price = 0,
   } = props;
 
   const ingredientsText = ingredients.join(", ");
-
-  console.log(ingredientsText);
 
   return (
     <article className={cls.card}>
@@ -34,7 +33,11 @@ const CartItem = (props) => {
             Seçmək
           </Button>
 
-          <span>0 AZN</span>
+          {product === productsName.OTHERS ? (
+            <span>{price} AZN</span>
+          ) : (
+            <span>{price} AZNdən</span>
+          )}
         </div>
       </div>
     </article>
