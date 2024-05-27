@@ -11,7 +11,7 @@ export const fetchPizzas = createAsyncThunk(
       return response.data;
        
     } catch (error) {
-      return rejectWithValue(error.message);
+      return rejectWithValue('Pizzalar tapılmadı');
     }
   }
 );
