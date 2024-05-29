@@ -5,9 +5,10 @@ import {
   getPizzasErrors,
   getPizzasLoading,
 } from "@/redux/pizzas/selectors/pizzasSelectors";
-import { fetchPizzas } from "@/redux/pizzas/services/fetchPizzas";
+import { fetchNextPizzasPage } from "@/redux/pizzas/services/fetchNextPizzasPage";
 import { calcMinPricePizzas } from "@/utils/calcMinPrice";
 import { useEffect } from "react";
+import { useInView } from "react-intersection-observer";
 import { useDispatch, useSelector } from "react-redux";
 
 const PizzasPage = () => {
@@ -15,11 +16,17 @@ const PizzasPage = () => {
   const error = useSelector(getPizzasErrors);
   const loading = useSelector(getPizzasLoading);
 
+  const { ref, inView } = useInView({
+    threshold: 1,
+  });
+
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchPizzas());
-  }, [dispatch]);
+    if (!error) {
+      dispatch(fetchNextPizzasPage());
+    }
+  }, [dispatch, error, inView]);  
 
   if (error) {
     return <div>{error}</div>;
@@ -40,7 +47,12 @@ const PizzasPage = () => {
     );
   });
 
-  return <ProductLayout header={"Pizzalar"} item={item} />;
+  return (
+    <>
+      <ProductLayout header={"Pizzalar"} item={item} />
+      {!loading && <div ref={ref} />}
+    </>
+  );
 };
 
 export default PizzasPage;
