@@ -27,7 +27,7 @@ export const pizzasSlice = createSlice({
     builder.addCase(fetchPizzas.fulfilled, (state, action) => {
       state.isLoading = false;
       state.pizzas = [...state.pizzas, ...action.payload];
-      state.hasMore = action.payload.length >= state.limit;
+      state.hasMore = action.payload.length >= state.limit
     });
     builder.addCase(fetchPizzas.rejected, (state, action) => {
       state.isLoading = false;
