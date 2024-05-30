@@ -17,6 +17,7 @@ const PizzasPage = () => {
   const loading = useSelector(getPizzasLoading);
 
   const { ref, inView } = useInView({
+    /* Optional options */
     threshold: 1,
   });
 
@@ -26,7 +27,7 @@ const PizzasPage = () => {
     if (!error) {
       dispatch(fetchNextPizzasPage());
     }
-  }, [dispatch, error, inView]);  
+  }, [dispatch, error, inView]);
 
   if (error) {
     return <div>{error}</div>;
