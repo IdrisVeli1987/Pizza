@@ -1,5 +1,6 @@
 import { CartItem } from "@/Components/CartItem";
 import { ProductLayout } from "@/layouts/ProductLayout";
+import { ProductLayoutSkeleton } from "@/layouts/ProductLayout/ui/ProductLayout";
 import {
   getRolls,
   getRollsErrors,
@@ -50,6 +51,8 @@ const RollsPage = () => {
   return (
     <>
       <ProductLayout header={"Suşilər"} item={item} />
+      {loading && <ProductLayoutSkeleton />}
+
       {!loading && <div ref={ref} />}
     </>
   );
