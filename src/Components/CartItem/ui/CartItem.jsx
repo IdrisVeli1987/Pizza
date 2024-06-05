@@ -13,6 +13,7 @@ const CartItem = (props) => {
     ingredients = [],
     description = "",
     price = 0,
+    handleClick,
   } = props;
 
   const dispatch = useDispatch();
@@ -20,6 +21,7 @@ const CartItem = (props) => {
   const ingredientsText = ingredients.join(", ");
 
   const onClick = () => {
+    handleClick();
     dispatch(
       fetchProductItem({
         id: id,

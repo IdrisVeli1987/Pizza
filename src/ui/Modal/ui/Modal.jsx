@@ -1,6 +1,7 @@
 import classNames from "classnames";
 import ReactModal from "react-modal";
 import cls from "./Modal.module.scss";
+import { useEffect, useState } from "react";
 
 ReactModal.setAppElement("#root");
 
@@ -10,11 +11,32 @@ const variantClasses = {
 };
 
 const Modal = (props) => {
-  const { isOpen, children, variant, width, height, border, scroll } = props;
+  const {
+    isOpen,
+    children,
+    variant,
+    width,
+    height,
+    border,
+    scroll,
+    setIsOpen,
+  } = props;
 
   const variantClass = variantClasses[variant] || variantClasses.normal;
 
-  const closeModal = () => {};
+  const [closing, setIsClosing] = useState(false);
+
+  useEffect(() => {
+    if (!isOpen) {
+      setIsClosing(true);
+    } else {
+      setIsClosing(false);
+    }
+  }, [isOpen]);
+
+  const closeModal = () => {
+    setIsOpen(false);
+  };
 
   return (
     <ReactModal
@@ -26,7 +48,9 @@ const Modal = (props) => {
           overflowY: scroll,
         },
       }}
-      className={classNames(cls.animate, cls[variantClass])}
+      className={classNames(cls.animate, cls[variantClass], {
+        [cls.closing]: closing,
+      })}
       isOpen={isOpen}
       shouldCloseOnEsc={true}
       shouldCloseOnOverlayClick={true}
@@ -37,6 +61,7 @@ const Modal = (props) => {
       parentSelector={() => document.querySelector("#app")}
     >
       {children}
+      <button className={cls.close} onClick={closeModal}></button>
     </ReactModal>
   );
 };

@@ -4,9 +4,6 @@
 
 // overlay
 .overlay {
-  display: flex;
-  align-items: center;
-  justify-content: center;
   position: fixed;
   background: rgba(25, 25, 25, 0.4);
   backdrop-filter: blur(16px);
@@ -14,9 +11,12 @@
   width: 100%;
   height: 100%;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-//close
+// close
 .close {
   position: absolute;
   width: 32px;
@@ -33,11 +33,11 @@
 .close::before,
 .close::after {
   content: "";
-  display: block;
   position: absolute;
   top: 10px;
+  display: block;
   width: 32px;
-  height: 32px;
+  height: 3px;
   background: var(--primary-color);
 }
 
@@ -49,7 +49,7 @@
   transform: rotate(-45deg);
 }
 
-//modal
+// modal
 .modal {
   background-color: var(--light-bg);
   border: 1px solid #ccc;
@@ -63,14 +63,13 @@
   cursor: auto;
   width: 100%;
 
-  //close
+  // close
   .close {
     top: -30px;
     right: -45px;
   }
 
-  //animation
-
+  // анимации
   &.animate {
     animation: modalAnimation 0.3s ease forwards;
   }
@@ -82,7 +81,7 @@
   }
 }
 
-//rightModal
+// rightModal
 .rightModal {
   position: fixed;
   top: -100%;
@@ -92,16 +91,16 @@
   width: 100%;
   background: var(--light-bg);
   outline: none;
-  padding: 30px 20px 0 20px;
+  padding: 30px 20px 0px 20px;
   box-shadow: -8px 0 20px rgba(0 0 0 / 0.1);
 
-  //close
+  // close
   .close {
     top: 30px;
     right: 20px;
   }
 
-  //animation
+  // анимации
   &.animate {
     animation: rightModalAnimation 0.3s ease-in-out forwards;
   }

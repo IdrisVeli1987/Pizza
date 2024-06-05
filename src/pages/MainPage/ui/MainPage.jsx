@@ -1,6 +1,5 @@
 import { ProductTape } from "@/Components/ProductTape";
 import { useGetOthers, useGetPizzas, useGetRolls } from "@/api/rtkApi";
-import { Modal } from "@/ui/Modal";
 
 const MainPage = () => {
   const {
@@ -21,9 +20,9 @@ const MainPage = () => {
     error: OthersError,
   } = useGetOthers();
 
+
   return (
     <>
-      <Modal isOpen={true} width={500} height={200}>Hello</Modal>
       <ProductTape
         title="Pizzalar"
         products={productsPizzas}

@@ -7,13 +7,17 @@ const LayoutContextProvider = ({ children }) => {
 
   const handleClick = () => setIsOpen((prev) => !prev);
 
+  console.log("isOpen", isOpen);
+
   const value = {
     isOpen,
     handleClick,
     setIsOpen,
   };
 
-  return <LayoutContext.Provider>{children}</LayoutContext.Provider>;
+  return (
+    <LayoutContext.Provider value={value}>{children}</LayoutContext.Provider>
+  );
 };
 
 export { LayoutContextProvider };
