@@ -7,7 +7,6 @@ const LayoutContextProvider = ({ children }) => {
 
   const handleClick = () => setIsOpen((prev) => !prev);
 
-  console.log("isOpen", isOpen);
 
   const value = {
     isOpen,
