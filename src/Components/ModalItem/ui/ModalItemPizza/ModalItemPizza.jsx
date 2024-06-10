@@ -14,8 +14,7 @@ import { useModalItemParams } from "../../helper/useModalItemParams";
 const ModalItemPizza = (props) => {
   const { isOpen, product, price } = props;
 
-  const newParams = useModalItemParams();
-
+  const params = useModalItemParams();
 
   const dispatch = useDispatch();
 
@@ -24,7 +23,7 @@ const ModalItemPizza = (props) => {
 
   useEffect(() => {
     if (isOpen) {
-      dispatch(productActions.clearProduct())
+      dispatch(productActions.clearProduct());
       if (productsName.PIZZAS === product.product) {
         dispatch(productActions.setSize(product.sizes[0]));
         dispatch(productActions.setType(product.doughs[0]));
@@ -93,7 +92,13 @@ const ModalItemPizza = (props) => {
         </div>
       </div>
     </div>
-  );   
+  );
+
+  const newParams = {
+    ...params,
+    size: sizePizza?.name,
+    type: typePizza?.name,
+  };
 
   return <ModalItemLayout price={price} params={newParams} options={options} />;
 };
