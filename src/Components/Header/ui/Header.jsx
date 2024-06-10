@@ -59,7 +59,17 @@ const Header = () => {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       >
-        <BasketItem />
+        <div className={cls.body}>
+          <BasketItem />
+
+          <div className={cls.footer}>
+            <div className={cls.totalPrice}>
+              <span>Cəm: 0 AZN</span>
+            </div>
+
+            <Button>Sifariş et</Button>
+          </div>
+        </div>
       </Modal>
     </>
   );

@@ -4,11 +4,27 @@ import { useDispatch, useSelector } from "react-redux";
 import cls from "./BasketItem.module.scss";
 import { Button } from "@/ui/Button";
 import { basketActions } from "@/redux/basket/slice/basketSlice";
+// import { Home01Icon } from "@hugeicons/react-pro";
+import basketImg from "@/assets/img/basket.svg";
 
 const BasketItem = () => {
   const basket = useSelector(getBasketItems);
 
   const dispatch = useDispatch();
+
+  const uniqueKey = (product) => {
+    switch (product.product) {
+      case productsName.PIZZAS:
+        return `${product.product} - ${product.id}-${product.size}-${product.type}-${product.price}`;
+      case productsName.ROLLS:
+        return `${product.product} - ${product.id}-${product.quantity}-${product.type}-${product.price}`;
+      case productsName.OTHERS:
+        return `${product.product} - ${product.id}-${product.type}-${product.price}`;
+
+      default:
+        return null;
+    }
+  };
 
   const description = (product) => {
     switch (product.product) {
@@ -28,7 +44,7 @@ const BasketItem = () => {
   };
 
   const item = basket.map((el) => (
-    <div key={el.id} className={cls.body}>
+    <div key={uniqueKey(el)} className={cls.body}>
       <img className={cls.image} src={el.img} alt="" />
 
       <div className={cls.content}>
@@ -63,11 +79,20 @@ const BasketItem = () => {
   ));
 
   return (
-    <div className={cls.basketContent}>
-      <h2>Sizin sifariş</h2>
+    <>
+      <div className={cls.basketContent}>
+        <h2>Sizin sifariş</h2>
 
-      {item}
-    </div>
+        {item}
+      </div>
+      
+      {!basket.length && (
+        <div className={cls.empty}>
+          <h3>Sizin səbətiniz boşdur</h3>
+          <img className={cls.basketIcon} src={basketImg} alt="" />
+        </div>
+      )}
+    </>
   );
 };
 
