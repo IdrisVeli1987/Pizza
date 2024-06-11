@@ -9,9 +9,13 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cls from "./Header.module.scss";
 import { BasketItem } from "@/Components/BasketItem";
+import { useSelector } from "react-redux";
+import { getBasketTotalPrice } from "@/redux/basket/selectors/basketSelectors";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const totalPrice = useSelector(getBasketTotalPrice);
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -44,7 +48,7 @@ const Header = () => {
               <Button onClick={handleClick} border className={cls.button}>
                 <Icon Svg={CartIcon} />
 
-                <span>O AZN</span>
+                <span>{totalPrice} AZN</span>
               </Button>
             </div>
           </div>
@@ -64,7 +68,7 @@ const Header = () => {
 
           <div className={cls.footer}>
             <div className={cls.totalPrice}>
-              <span>Cəm: 0 AZN</span>
+              <span>Cəm: {totalPrice} AZN</span>
             </div>
 
             <Button>Sifariş et</Button>
