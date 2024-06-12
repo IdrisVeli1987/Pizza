@@ -5,15 +5,18 @@ import { useTheme } from "@/hooks/useTheme";
 import { Button } from "@/ui/Button";
 import { Icon } from "@/ui/Icon";
 import { Modal } from "@/ui/Modal";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cls from "./Header.module.scss";
 import { BasketItem } from "@/Components/BasketItem";
 import { useSelector } from "react-redux";
 import { getBasketTotalPrice } from "@/redux/basket/selectors/basketSelectors";
+import { LayoutContext } from "@/providers/LayoutContextProvier";
 
 const Header = () => {
   const navigate = useNavigate();
+
+  const { popup } = useContext(LayoutContext);
 
   const totalPrice = useSelector(getBasketTotalPrice);
 
@@ -52,6 +55,7 @@ const Header = () => {
               </Button>
             </div>
           </div>
+          {popup && <p className={cls.popup}>Məhsul səbətə əlavə edildi</p>}
         </div>
       </header>
 

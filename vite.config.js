@@ -14,7 +14,7 @@ export default defineConfig({
   },
 
   define: {
-    __API__: JSON.stringify("http://localhost:8000"),
+    __API__: JSON.stringify("https://pizzaserver-tqk8vd3m.b4a.run"),
   },
 
   resolve: {
